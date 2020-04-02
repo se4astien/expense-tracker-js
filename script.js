@@ -6,12 +6,42 @@ const form = document.getElementById('form');
 const text = document.getElementById('text');
 const amount = document.getElementById('amount');
 
-const transactions = [
+let transactions = [
   { id: 1, text: 'Flower', amount: 20 },
   { id: 2, text: 'Salary', amount: 2000 },
   { id: 3, text: 'Book', amount: -300 },
   { id: 4, text: 'Camera', amount: -50 }
 ];
+
+// Add transaction
+function addTransaction(e) {
+  e.preventDefault();
+
+  if (text.nodeValue === '' || amount.value === '') {
+    alert('Please add a text and amount');
+  } else {
+    const transaction = {
+      id: randomId(),
+      text: text.value,
+      amount: +amount.value
+    };
+
+    // console.log(transaction);
+    transactions.push(transaction);
+    // Add to DOM
+    addTransactionDOM(transaction);
+    // Update Values
+    updateValues();
+    // Clear input
+    text.value = '';
+    amount.value = '';
+  }
+}
+
+// Generate ID
+function randomId() {
+  return Math.floor(Math.random() * 1000000000);
+}
 
 // Add transaction into the DOM
 function addTransactionDOM(transaction) {
@@ -24,7 +54,9 @@ function addTransactionDOM(transaction) {
   // 3. Fill content
   item.innerHTML = `${transaction.text} <span>${sign}${Math.abs(
     transaction.amount
-  )}</span> <button class="delete-btn">x</button>`;
+  )}</span> <button class="delete-btn" onclick="removeTransaction(${
+    transaction.id
+  })">x</button>`;
   // 4. Append to ul
   list.appendChild(item);
 }
@@ -35,7 +67,7 @@ function updateValues() {
   //     return transaction.amount;
   //   });
   const amounts = transactions.map(transaction => transaction.amount);
-  // console.log(amounts);
+  console.log(amounts);
 
   // Total
   const total = amounts
@@ -63,6 +95,13 @@ function updateValues() {
   //   console.log(expense);
   // Add DOM
   moneyMinus.innerHTML = `${expense}€`;
+}
+
+// Remove transaction by ID
+function removeTransaction(id) {
+  // for each transaction, we ckeck if id of transaction is the same
+  transactions = transactions.filter(transaction => transaction.id !== id);
+  init();
 }
 
 // Init App
