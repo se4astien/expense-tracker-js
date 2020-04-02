@@ -1,12 +1,18 @@
-## Expense Tracker
+## Expense Tracker JS
 
-Keep track of income and expenses. Add and remove items and save to local storage
+* Keep track of income and expenses. 
+* Add and remove items and save to local storage
 
 ## Project Specifications
 
-- Create UI for project
-- Display transaction items in DOM
-- Show balance, expense and income totals
-- Add new transation and reflect in total
-- Delete items from DOM
-- Persist to local storage
+* [x] Create UI for project
+* [x] Display transaction items in DOM
+* [x] Show balance, expense and income totals
+* [x] Add new transation and reflect in total
+* [x] Delete items from DOM
+* [x] Persist to local storage
+
+## Online
+
+
+## Screenshot
