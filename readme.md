@@ -17,3 +17,4 @@ https://expense-tracker-app-js.netlify.com/
 
 ## Screenshot
 ![](https://github.com/se4astien/expense-tracker-js/blob/master/screenshots/expense-tracker.png)
+<img src="https://github.com/se4astien/expense-tracker-js/blob/master/screenshots/expense-tracker.png" width="200" />
