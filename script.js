@@ -88,15 +88,6 @@ function updateValues() {
   // Add DOM
   balance.innerHTML = `${total}€`;
 
-  // Income
-  const income = amounts
-    .filter(item => item > 0)
-    .reduce((accumulator, item) => (accumulator += item), 0)
-    .toFixed(2);
-  // console.log(income);
-  // Add DOM
-  moneyPlus.innerHTML = `${income}€`;
-
   // Expense
   const expense = (
     amounts
@@ -105,7 +96,16 @@ function updateValues() {
   ).toFixed(2);
   //   console.log(expense);
   // Add DOM
-  moneyMinus.innerHTML = `${expense}€`;
+  moneyMinus.innerHTML = `-${expense}€`;
+
+  // Income
+  const income = amounts
+    .filter(item => item > 0)
+    .reduce((accumulator, item) => (accumulator += item), 0)
+    .toFixed(2);
+  // console.log(income);
+  // Add DOM
+  moneyPlus.innerHTML = `${income}€`;
 }
 
 // Remove transaction by ID
