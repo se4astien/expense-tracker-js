@@ -65,7 +65,7 @@ function addTransactionDOM(transaction) {
   // 3. Fill content
   item.innerHTML = `${transaction.text} <span>${sign}${Math.abs(
     transaction.amount
-  )}</span> <button class="delete-btn" onclick="removeTransaction(${
+  )}€</span> <button class="delete-btn" onclick="removeTransaction(${
     transaction.id
   })">x</button>`;
   // 4. Append to ul
@@ -86,7 +86,7 @@ function updateValues() {
     .toFixed(2);
   // console.log(total);
   // Add DOM
-  balance.innerHTML = `${total}`;
+  balance.innerHTML = `${total}€`;
 
   // Income
   const income = amounts
