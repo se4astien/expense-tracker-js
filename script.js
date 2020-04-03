@@ -26,7 +26,7 @@ let transactions =
 function addTransaction(e) {
   e.preventDefault();
 
-  if (text.nodeValue === '' || amount.value === '') {
+  if (text.value === '' || amount.value === '') {
     alert('Please add a text and amount');
   } else {
     const transaction = {
